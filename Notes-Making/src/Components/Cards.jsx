@@ -6,20 +6,20 @@ import { LuDownload } from "react-icons/lu";
 
 function Cards(props) {
     
+    function handleClick() {
+        props.onDelete(props.id);
+      }
+
     return (
-        <div className='relative overflow-hidden w-[25vh] h-[33vh] bg-black rounded-3xl text-white py-10 px-8'>
+        <div className='relative overflow-hidden w-[25vh] h-[33vh] bg-black rounded-3xl text-white py-10 px-6'>
             <FaRegFileAlt />
-            <p className='text-xs leading-tight mt-5'>
+            <textarea className='text-xs leading-tight mt-5 bg-transparent border-none focus-visible:border-red-500 h-[70%]'>
                 {props.desc}
-            </p>
+            </textarea>
             <div className='footer absolute w-full bottom-0 left-0'>
-                <div className='flex items-center justify-between py-3 px-8 mb-3'>
-                    <div>0.4mb</div>
-                    <LuDownload />
-                </div>
                 <div className='tag w-full py-4 bg-green-600 flex items-center justify-center'>
-                    <h3 className='text-xs'>
-                        Download Now
+                    <h3 className='text-xs w-full'>
+                    <button onClick={handleClick} className='w-full'>DELETE</button>
                     </h3>
                 </div>
             </div>

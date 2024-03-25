@@ -12,16 +12,26 @@ function Foreground() {
       return [...prevNotes, newNote];
     });
   }
+  function deleteNote(id) {
+    setNotes(prevNotes => {
+      return prevNotes.filter((noteItem, index) => {
+        return index !== id;
+      });
+    });
+  }
 
   return (
     <div className='z-[3] w-full h-screen fixed top-0 left-0 flex flex-wrap gap-10'>
       <Input
-        onAdd={addNote}
-      />
-      {notes.map((noteItem) => {
+        onAdd={addNote} />
+      {notes.map((noteItem, index) => {
         return (
           <Cards
-            desc={noteItem.desc} />
+            key={index}
+            id={index}
+            desc={noteItem.desc}
+            onDelete={deleteNote}
+          />
         )
       })}
     </div>
