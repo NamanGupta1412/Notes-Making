@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import React,{useState} from 'react';
+import { motion } from "framer-motion"
 
 function Input(props) {
 
@@ -23,7 +24,7 @@ function submitNote(e) {
 }
 
   return (
-    <form className=' box-border' onSubmit={submitNote}>
+    <motion.form drag dragConstraints={props.refrence} className=' box-border' onSubmit={submitNote}>
     <div className='flex flex-col items-center mt-[60px] ml-11'>
       <textarea type="text" placeholder='Notes'
         className='overflow-hidden py-4 box-border px-4 flex flex-wrap items-center justify-center border-4 border-zinc-3 mt-5 h-[33vh] w-[25vh] rounded-[40px] bg-zinc-500'
@@ -34,7 +35,7 @@ function submitNote(e) {
       <button className='bg-black rounded-full px-4 py-2 text-white mt-2 w-[60%]'
       >Add</button>
     </div>
-  </form>
+  </motion.form>
   )
 }
 

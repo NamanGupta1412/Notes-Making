@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Cards from './Cards'
 import Input from './Input';
 
 
 function Foreground() {
+  const ref = useRef(null);
 
   const [notes, setNotes] = useState([])
 
@@ -21,9 +22,11 @@ function Foreground() {
   }
 
   return (
-    <div className='z-[3] w-full h-screen fixed top-0 left-0 flex flex-wrap gap-10'>
+    <div ref={ref} className='z-[3] w-full h-screen fixed top-0 left-0 flex flex-wrap gap-10'>
       <Input
-        onAdd={addNote} />
+        onAdd={addNote} 
+        refrence={ref}
+        />
       {notes.map((noteItem, index) => {
         return (
           <Cards
@@ -31,6 +34,7 @@ function Foreground() {
             id={index}
             desc={noteItem.desc}
             onDelete={deleteNote}
+            refrence={ref}
           />
         )
       })}
