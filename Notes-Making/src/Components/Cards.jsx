@@ -17,7 +17,7 @@ function Cards(props) {
                 {props.desc}
             </textarea>
             <div className='footer absolute w-full bottom-0 left-0'>
-                <div className='tag w-full py-4 bg-green-600 flex items-center justify-center'>
+                <div className='tag w-full py-4 bg-red-600 flex items-center justify-center'>
                     <h3 className='text-xs w-full'>
                         <button onClick={handleClick} className='w-full'>DELETE</button>
                     </h3>
