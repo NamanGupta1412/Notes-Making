@@ -4,12 +4,13 @@ import { LuDownload } from "react-icons/lu";
 
 
 
-function Cards({data}) {
+function Cards(props) {
+    
     return (
         <div className='relative overflow-hidden w-[25vh] h-[33vh] bg-black rounded-3xl text-white py-10 px-8'>
             <FaRegFileAlt />
             <p className='text-xs leading-tight mt-5'>
-                {data.desc}
+                {props.desc}
             </p>
             <div className='footer absolute w-full bottom-0 left-0'>
                 <div className='flex items-center justify-between py-3 px-8 mb-3'>

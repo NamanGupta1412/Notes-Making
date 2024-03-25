@@ -1,32 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Cards from './Cards'
-
+import Input from './Input';
 
 
 function Foreground() {
 
+  const [notes, setNotes] = useState([])
 
-const data = 
-[
-{
-  desc: "This is a Fake Data",
-  
-},
-{
-  desc: "This is a Fake Data2",
-  
-},
-{
-  desc: "This is a Fake Data3",
-  
-},
-];
+  function addNote(newNote) {
+    setNotes(prevNotes => {
+      return [...prevNotes, newNote];
+    });
+  }
+
   return (
-    <div className='z-[3] w-full h-screen fixed top-0 left-0'>
-    {data.map((t,i)=>(
-      <Cards data={t}/>
-    ))}
-    
+    <div className='z-[3] w-full h-screen fixed top-0 left-0 flex flex-wrap gap-10'>
+      <Input
+        onAdd={addNote}
+      />
+      {notes.map((noteItem) => {
+        return (
+          <Cards
+            desc={noteItem.desc} />
+        )
+      })}
     </div>
   )
 }
