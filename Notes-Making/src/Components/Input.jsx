@@ -24,7 +24,7 @@ function submitNote(e) {
 }
 
   return (
-    <motion.form drag dragConstraints={props.refrence} className=' box-border' onSubmit={submitNote}>
+    <motion.form drag dragConstraints={props.refrence} whileDrag={{ scale: 1.2 }} className=' box-border' onSubmit={submitNote}>
     <div className='flex flex-col items-center mt-[60px] ml-11'>
       <textarea type="text" placeholder='Notes'
         className='overflow-hidden py-4 box-border px-4 flex flex-wrap items-center justify-center border-4 border-zinc-3 mt-5 h-[33vh] w-[25vh] rounded-[40px] bg-zinc-500'
